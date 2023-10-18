@@ -22,6 +22,10 @@ import Notifications from "@/pages/Dashboard/Components/Notifications.vue";
 import Icons from "@/pages/Dashboard/Components/Icons.vue";
 import Typography from "@/pages/Dashboard/Components/Typography.vue";
 
+// Components pages
+import DraftsList from "@/pages/Dashboard/BillOfLading/DraftsList.vue";
+import DraftDetails from "@/pages/Dashboard/BillOfLading/DraftDetails.vue";
+
 // Forms pages
 import RegularForms from "@/pages/Dashboard/Forms/RegularForms.vue";
 import ExtendedForms from "@/pages/Dashboard/Forms/ExtendedForms.vue";
@@ -134,7 +138,7 @@ let tablesMenu = {
     },
     {
       path: "paginated",
-      name: "Pagianted Tables",
+      name: "House Bls",
       components: { default: PaginatedTables },
     },
   ],
@@ -246,9 +250,14 @@ const routes = [
         components: { default: Dashboard },
       },
       {
-        path: "calendar",
-        name: "Calendar",
-        components: { default: Calendar },
+        path: "drafts-list",
+        name: "Drafts",
+        components: { default: DraftsList },
+      },
+      {
+        path: "draft-details",
+        name: "Draft Details",
+        components: { default: DraftDetails },
       },
       {
         path: "charts",

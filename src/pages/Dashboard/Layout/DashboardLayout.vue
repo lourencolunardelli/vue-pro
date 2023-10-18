@@ -1,10 +1,7 @@
 <template>
   <div
     class="wrapper"
-    :class="[
-      { 'nav-open': $sidebar.showSidebar },
-      { rtl: $route.meta.rtlActive },
-    ]"
+    :class="[{ 'nav-open': $sidebar.showSidebar }, { rtl: $route.meta.rtlActive }]"
   >
     <notifications></notifications>
     <side-bar
@@ -31,49 +28,42 @@
         </sidebar-item>
         <sidebar-item
           v-if="$route.meta.rtlActive"
+          :link="{ name: 'التقويم', icon: 'directions_boat', path: '/drafts-list' }"
+        ></sidebar-item>
+        <sidebar-item
+          v-else
+          :link="{ name: 'Drafts', icon: 'directions_boat', path: '/drafts-list' }"
+        ></sidebar-item>
+
+        <!-- <sidebar-item
+          v-if="$route.meta.rtlActive"
           :link="{ name: 'صفحات', icon: 'image' }"
         >
-          <sidebar-item
-            :link="{ name: 'التسعير', path: '/pricing' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'دعم رتل', path: '/pages/rtl' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'التسعير', path: '/pricing' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'دعم رتل', path: '/pages/rtl' }"></sidebar-item>
           <sidebar-item
             :link="{ name: 'الجدول الزمني', path: '/pages/timeline' }"
           ></sidebar-item>
           <sidebar-item
             :link="{ name: 'صفحة تسجيل الدخول', path: '/login' }"
           ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'سجل الصفحة', path: '/register' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'قفل صفحة الشاشة', path: '/lock' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'سجل الصفحة', path: '/register' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'قفل صفحة الشاشة', path: '/lock' }"></sidebar-item>
           <sidebar-item
             :link="{ name: 'ملف تعريفي للمستخدم', path: '/pages/user' }"
           ></sidebar-item>
         </sidebar-item>
         <sidebar-item v-else :link="{ name: 'Pages', icon: 'image' }">
-          <sidebar-item
-            :link="{ name: 'Pricing', path: '/pricing' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'Pricing', path: '/pricing' }"></sidebar-item>
           <sidebar-item
             :link="{ name: 'RTL Support', path: '/pages/rtl' }"
           ></sidebar-item>
           <sidebar-item
             :link="{ name: 'Timeline', path: '/pages/timeline' }"
           ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'Login', path: '/login' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'Register', path: '/register' }"
-          ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'Lock Screen', path: '/lock' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'Login', path: '/login' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'Register', path: '/register' }"></sidebar-item>
+          <sidebar-item :link="{ name: 'Lock Screen', path: '/lock' }"></sidebar-item>
           <sidebar-item
             :link="{ name: 'User Profile', path: '/pages/user' }"
           ></sidebar-item>
@@ -145,9 +135,7 @@
           <sidebar-item
             :link="{ name: 'نماذج التحقق', path: '/forms/validation' }"
           ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'ساحر', path: '/forms/wizard' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'ساحر', path: '/forms/wizard' }"></sidebar-item>
         </sidebar-item>
         <sidebar-item v-else :link="{ name: 'Forms', icon: 'content_paste' }">
           <sidebar-item
@@ -159,9 +147,7 @@
           <sidebar-item
             :link="{ name: 'Validation Forms', path: '/forms/validation' }"
           ></sidebar-item>
-          <sidebar-item
-            :link="{ name: 'Wizard', path: '/forms/wizard' }"
-          ></sidebar-item>
+          <sidebar-item :link="{ name: 'Wizard', path: '/forms/wizard' }"></sidebar-item>
         </sidebar-item>
         <sidebar-item
           v-if="$route.meta.rtlActive"
@@ -239,7 +225,7 @@
         <sidebar-item
           v-else
           :link="{ name: 'Calendar', icon: 'date_range', path: '/calendar' }"
-        ></sidebar-item>
+        ></sidebar-item> -->
       </template>
     </side-bar>
     <div class="main-panel">
@@ -254,10 +240,7 @@
       >
       </fixed-plugin>
 
-      <div
-        :class="{ content: !$route.meta.hideContent }"
-        @click="toggleSidebar"
-      >
+      <div :class="{ content: !$route.meta.hideContent }" @click="toggleSidebar">
         <zoom-center-transition :duration="200" mode="out-in">
           <!-- your content here -->
           <router-view></router-view>
