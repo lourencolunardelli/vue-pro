@@ -93,6 +93,7 @@ import { Pagination } from "@/components";
 import drafts from "./drafts";
 import Fuse from "fuse.js";
 import Swal from "sweetalert2";
+import { BillOfLadingService } from "../../../api-services/billOfLadingService";
 
 export default {
   components: {
@@ -161,10 +162,12 @@ export default {
         confirmButtonClass: "md-button md-success",
       });
     },
-    handleEdit(item) {
+    async handleEdit(item) {
+
       this.$router.push({ name: "Draft Details", params: { item } });
+      // var text = await BillOfLadingService.Status();
       // Swal.fire({
-      //   title: `You want to edit ${item.name}`,
+      //   title: text,
       //   buttonsStyling: false,
       //   confirmButtonClass: "md-button md-info",
       // });

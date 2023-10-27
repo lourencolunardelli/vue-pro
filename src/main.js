@@ -18,6 +18,8 @@ import DashboardPlugin from "./material-dashboard";
 // Plugins
 import App from "./App.vue";
 import Chartist from "chartist";
+import VueAxios from "vue-axios";
+import axios from "axios";
 
 // router setup
 import routes from "./routes/routes";
@@ -25,6 +27,7 @@ import routes from "./routes/routes";
 // plugin setup
 Vue.use(VueRouter);
 Vue.use(DashboardPlugin);
+Vue.use(VueAxios, axios);
 
 // configure router
 const router = new VueRouter({
