@@ -99,6 +99,17 @@ export default {
 
     this.draft = this.$route.params.item;
 
+    if (!this.draft) {
+      this.draft = {
+        id: 0,
+        input1: "",
+        input2: "",
+        input3: "",
+        input4: "",
+        input5: "",
+        input6: "",
+      };
+    }
     // if (item != undefined) {
     //   this.acao = "Atualizar";
     //   this.loja = await LojaService.Buscar(item.id);
@@ -112,32 +123,50 @@ export default {
     },
 
     async ValidateDraft(event) {
-      const data = new FormData();
-      data.append("arquivo", event.target.files[0]);
 
-      const response = await BillOfLadingService.ValidateDraft(data);
-      var pdfContent = response.data;
-
-      if (pdfContent.match(this.draft.input1) &&
-        pdfContent.match(this.draft.input2) &&
-        pdfContent.match(this.draft.input3) &&
-        pdfContent.match(this.draft.input4) &&
-        pdfContent.match(this.draft.input5) &&
-        pdfContent.match(this.draft.input6)) {
+      if (!this.draft.input1 ||
+        !this.draft.input2 ||
+        !this.draft.input3 ||
+        !this.draft.input4 ||
+        !this.draft.input5 ||
+        !this.draft.input6) {
         Swal.fire({
-          title: "O PDF anexado está de acordo 100%",
-          buttonsStyling: false,
-          confirmButtonClass: "md-button md-info",
+          title: "Preencha todas as informações do Draft",
+          buttonsStyling: true,
+          confirmButtonClass: "md-button md-warning",
         });
+      data.append(event.target.files[0], null);
+        return;
       }
       else {
-        Swal.fire({
-          title: "O pdf anexado está de diferente do cadastrado",
-          buttonsStyling: false,
-          confirmButtonClass: "md-button md-info",
-        });
-      }
+        var data = new FormData();
+        data.append(event.target.files[0], event.target.files[0]);
 
+        const response = await BillOfLadingService.ValidateDraft(data);
+        var pdfContent = response.data;
+
+        if (pdfContent.match(this.draft.input1) &&
+          pdfContent.match(this.draft.input2) &&
+          pdfContent.match(this.draft.input3) &&
+          pdfContent.match(this.draft.input4) &&
+          pdfContent.match(this.draft.input5) &&
+          pdfContent.match(this.draft.input6)) {
+          Swal.fire({
+            title: "O PDF anexado está de acordo 100%",
+            buttonsStyling: true,
+            confirmButtonClass: "md-button md-info",
+          });
+        }
+        else {
+          Swal.fire({
+            title: "O pdf anexado está de diferente do cadastrado",
+            buttonsStyling: true,
+            confirmButtonClass: "md-button md-info",
+          });
+        }
+      }
+      data.append(event.target.files[0], null);
+      return;
       // this.produto.notaFiscal = response.data;
     },
   }
