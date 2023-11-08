@@ -10,36 +10,40 @@
         </md-card-header>
         <md-card-content>
           <div class="md-layout">
-            <div class="md-layout-item md-small-size-100 md-size-25">
-              <md-field>
-                <label>Number</label>
-                <md-input v-model="draft.number" type="text"></md-input>
-              </md-field>
-            </div>
-          </div>
-          <div class="md-layout">
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
-                <label>Shipper</label>
-                <md-input v-model="draft.shipper" type="text"></md-input>
+                <label>N° Container</label>
+                <md-input v-model="draft.input1" type="text"></md-input>
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
-                <label>Consignee</label>
-                <md-input v-model="draft.consignee" type="text"></md-input>
+                <label>N° Lacre</label>
+                <md-input v-model="draft.input2" type="text"></md-input>
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
-                <label>Origin</label>
-                <md-input v-model="draft.origin" type="text"></md-input>
+                <label>Tara</label>
+                <md-input v-model="draft.input3" type="text"></md-input>
               </md-field>
             </div>
             <div class="md-layout-item md-small-size-100 md-size-50">
               <md-field>
-                <label>Destiny</label>
-                <md-input v-model="draft.destiny" type="text"></md-input>
+                <label>Peso</label>
+                <md-input v-model="draft.input4" type="text"></md-input>
+              </md-field>
+            </div>
+            <div class="md-layout-item md-small-size-100 md-size-50">
+              <md-field>
+                <label>NCM Produto</label>
+                <md-input v-model="draft.input5" type="text"></md-input>
+              </md-field>
+            </div>
+            <div class="md-layout-item md-small-size-100 md-size-50">
+              <md-field>
+                <label>Descrição produto</label>
+                <md-input v-model="draft.input6" type="text"></md-input>
               </md-field>
             </div>
           </div>
@@ -79,11 +83,12 @@ export default {
   data() {
     return {
       draft: {
-        number: '',
-        shipper: '',
-        consignee: '',
-        origin: '',
-        destiny: ''
+        input1: '',
+        input2: '',
+        input3: '',
+        input4: '',
+        input5: '',
+        input6: ''
       }
     };
   },
@@ -113,11 +118,12 @@ export default {
       const response = await BillOfLadingService.ValidateDraft(data);
       var pdfContent = response.data;
 
-      if (pdfContent.match(this.draft.number) &&
-        pdfContent.match(this.draft.shipper) &&
-        pdfContent.match(this.draft.consignee) &&
-        pdfContent.match(this.draft.origin) &&
-        pdfContent.match(this.draft.destiny)) {
+      if (pdfContent.match(this.draft.input1) &&
+        pdfContent.match(this.draft.input2) &&
+        pdfContent.match(this.draft.input3) &&
+        pdfContent.match(this.draft.input4) &&
+        pdfContent.match(this.draft.input5) &&
+        pdfContent.match(this.draft.input6)) {
         Swal.fire({
           title: "O PDF anexado está de acordo 100%",
           buttonsStyling: false,

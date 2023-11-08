@@ -29,15 +29,12 @@
             </md-table-toolbar>
 
             <md-table-row slot="md-table-row" slot-scope="{ item }">
-              <md-table-cell md-label="Number" md-sort-by="number">{{
-                item.number
-              }}</md-table-cell>
-              <md-table-cell md-label="Shipper" md-sort-by="shipper">{{
-                item.shipper
-              }}</md-table-cell>
-              <md-table-cell md-label="Consignee">{{ item.consignee }}</md-table-cell>
-              <md-table-cell md-label="Origin">{{ item.origin }}</md-table-cell>
-              <md-table-cell md-label="Destiny">{{ item.destiny }}</md-table-cell>
+              <md-table-cell md-label="N° Container">{{ item.input1 }}</md-table-cell>
+              <md-table-cell md-label="N° Lacre">{{ item.input2 }}</md-table-cell>
+              <md-table-cell md-label="Tara">{{ item.input3 }}</md-table-cell>
+              <md-table-cell md-label="Peso">{{ item.input4 }}</md-table-cell>
+              <md-table-cell md-label="NCM Produto">{{ item.input5 }}</md-table-cell>
+              <md-table-cell md-label="Descrição Produto">{{ item.input6 }}</md-table-cell>
               <md-table-cell md-label="Actions">
                 <!-- <md-button
                   class="md-just-icon md-info md-simple"
@@ -136,9 +133,9 @@ export default {
         perPageOptions: [5, 10, 25, 50],
         total: 0,
       },
-      footerTable: ["Number", "Shipper", "Consignee", "Origin", "Destiny", "Actions"],
+      footerTable: ["N° Container", "N° Lacre", "Tara", "Peso", "NCM Produto", "Descrição Produto", "Ações"],
       searchQuery: "",
-      propsToSearch: ["number", "shipper", "consignee"],
+      propsToSearch: ["input1", "input2", "input3", "input4", "input5", "input6"],
       tableData: drafts,
       searchedData: [],
       fuseSearch: null,
