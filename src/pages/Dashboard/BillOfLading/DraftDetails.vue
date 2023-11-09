@@ -146,18 +146,18 @@ export default {
         var pdfContent = response.data;
 
 
-        var teste = pdfContent.includes(this.draft.input1);
-        console.log(teste);
-        console.log("Input 1: " + pdfContent.includes(this.draft.input1));
-        console.log("Input 2: " + pdfContent.includes(this.draft.input2));
-        console.log("Input 3: " + pdfContent.includes(this.draft.input3));
-        console.log("Input 4: " + pdfContent.includes(this.draft.input4));
-        console.log("Input 5: " + pdfContent.includes(this.draft.input5));
-        console.log("Input 6: " + pdfContent.includes(this.draft.input6));
+        // var teste = pdfContent.includes(this.draft.input1);
+        // console.log(teste);
+        // console.log("Input 1: " + pdfContent.includes(this.draft.input1));
+        // console.log("Input 2: " + pdfContent.includes(this.draft.input2));
+        // console.log("Input 3: " + pdfContent.includes(this.draft.input3));
+        // console.log("Input 4: " + pdfContent.includes(this.draft.input4));
+        // console.log("Input 5: " + pdfContent.includes(this.draft.input5));
+        // console.log("Input 6: " + pdfContent.includes(this.draft.input6));
 
 
-        console.log("--------------");
-        console.log(pdfContent);
+        // console.log("--------------");
+        // console.log(pdfContent);
 
         if (pdfContent.includes(this.draft.input1) &&
           pdfContent.includes(this.draft.input2) &&
