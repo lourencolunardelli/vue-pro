@@ -146,23 +146,25 @@ export default {
         var pdfContent = response.data;
 
 
-        console.log("Input 1: " + pdfContent.match(this.draft.input1));
-        console.log("Input 2: " + pdfContent.match(this.draft.input2));
-        console.log("Input 3: " + pdfContent.match(this.draft.input3));
-        console.log("Input 4: " + pdfContent.match(this.draft.input4));
-        console.log("Input 5: " + pdfContent.match(this.draft.input5));
-        console.log("Input 6: " + pdfContent.match(this.draft.input6));
+        var teste = pdfContent.includes(this.draft.input1);
+        console.log(teste);
+        console.log("Input 1: " + pdfContent.includes(this.draft.input1));
+        console.log("Input 2: " + pdfContent.includes(this.draft.input2));
+        console.log("Input 3: " + pdfContent.includes(this.draft.input3));
+        console.log("Input 4: " + pdfContent.includes(this.draft.input4));
+        console.log("Input 5: " + pdfContent.includes(this.draft.input5));
+        console.log("Input 6: " + pdfContent.includes(this.draft.input6));
 
 
         console.log("--------------");
         console.log(pdfContent);
-        
-        if (pdfContent.match(this.draft.input1) &&
-          pdfContent.match(this.draft.input2) &&
-          pdfContent.match(this.draft.input3) &&
-          pdfContent.match(this.draft.input4) &&
-          pdfContent.match(this.draft.input5) &&
-          pdfContent.match(this.draft.input6)) {
+
+        if (pdfContent.includes(this.draft.input1) &&
+          pdfContent.includes(this.draft.input2) &&
+          pdfContent.includes(this.draft.input3) &&
+          pdfContent.includes(this.draft.input4) &&
+          pdfContent.includes(this.draft.input5) &&
+          pdfContent.includes(this.draft.input6)) {
           Swal.fire({
             title: "O PDF anexado está de acordo 100%",
             buttonsStyling: true,
@@ -170,8 +172,11 @@ export default {
           });
         }
         else {
+
+
+
           Swal.fire({
-            title: "O pdf anexado está de diferente do cadastrado",
+            title: "O PDF anexado está de diferente do cadastrado",
             buttonsStyling: true,
             confirmButtonClass: "md-button md-info",
           });
