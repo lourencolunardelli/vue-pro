@@ -145,6 +145,18 @@ export default {
         const response = await BillOfLadingService.ValidateDraft(data);
         var pdfContent = response.data;
 
+
+        console.log("Input 1: " + pdfContent.match(this.draft.input1));
+        console.log("Input 2: " + pdfContent.match(this.draft.input2));
+        console.log("Input 3: " + pdfContent.match(this.draft.input3));
+        console.log("Input 4: " + pdfContent.match(this.draft.input4));
+        console.log("Input 5: " + pdfContent.match(this.draft.input5));
+        console.log("Input 6: " + pdfContent.match(this.draft.input6));
+
+
+        console.log("--------------");
+        console.log(pdfContent);
+        
         if (pdfContent.match(this.draft.input1) &&
           pdfContent.match(this.draft.input2) &&
           pdfContent.match(this.draft.input3) &&
